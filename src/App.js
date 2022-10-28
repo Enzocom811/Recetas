@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
+import data from './data/data'
+import Recipe from './components/Recipe';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    /* jsx solo puede retornar un solo elemento, por eso todo tiene que estar dentro de un div, si no, tira error. De igual manera, NO es una buena practica */
+    /* Aca aparece "Fragment", el cual ni hay que escribir */
+    <main className='container'>
+      {data.map((recipe)=>(
+        <Recipe key={recipe.id}{...recipe}/>
+      ))}
+    </main>
   );
 }
 
